@@ -39,6 +39,14 @@
             overflow: hidden;
         }
 
+        @font-face {
+            font-family: "tally";
+            src: url("font/Tally Text Bold 1.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
         img {
             user-select: none;
             -webkit-user-select: none;
@@ -88,6 +96,7 @@
         }
 
         #top {
+
             width: 100%;
             height: 7vw;
             background-color: black;
@@ -147,6 +156,7 @@
         #unlock {
             height: 100%;
             display: flex;
+            /* display: none; */
 
             justify-content: space-between;
             align-items: center;
@@ -644,10 +654,88 @@
             font-size: 4vw;
 
         }
+
+        #notediv {
+            height: 100%;
+            width: 100vw;
+            background-color: aqua;
+
+            display: none;
+            animation: camerapull 0.3s linear forwards;
+            z-index: 2;
+
+            position: relative;
+
+        }
+
+
+
+        #notetop {
+            background: linear-gradient(to bottom,
+                    #8d6553 0%,
+                    #423227 100%);
+
+            width: 100%;
+            height: 20vw;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            font-size: 6vw;
+        }
+
+        #notebgdiv {
+
+            height: 100%;
+            width: 100%;
+
+            background-image: url(note.png);
+            background-size: 100% 100%;
+
+
+        }
+
+
+
+
+
+        #notedate {
+            width: 100vw;
+            position: absolute;
+
+
+
+
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3vw;
+
+        }
+
+        #notedate p {
+            color: #8d6553;
+            font-size: 5vw;
+        }
+
+        #note {
+            font-size: 7vw;
+            position: absolute;
+            color: black;
+            margin-top: 13vw;
+            width: 100%;
+            text-align: center;
+
+            font-family: tally;
+        }
     </style>
 </head>
 
 <body>
+
+
     <div id="cameradiv">
         <div id="cameratop">
             <div onclick="turnoffcamera()">back</div>
@@ -672,6 +760,8 @@
 
     <div id="iphonediv">
 
+
+
         <div id="top">
             <div id="topleft">
                 <p>No Service</p>
@@ -686,12 +776,31 @@
             </div>
         </div>
 
+        <div id="notediv">
+            <div id="notetop">
+                <p onclick="turnoffnote() ">back</p>
+                <p>album coming soon</p>
+                <p>+</p>
+            </div>
+            <div id="notebgdiv">
+                <div id="notedate">
+                    <p style="font-weight: bold;">Today</p>
+                    <p>Jan 9 23:49</p>
+                </div>
+                <p id="note">Album coming soon ... #versaatchi</p>
+
+
+
+            </div>
+
+        </div>
+
         <div id="unlock">
             <div id="unlocktop">
                 <p id="time"></p>
                 <!-- <p id="date"></p> -->
                 <div id="songdiv">
-                    <audio id="locksong" loop src="sounds/Dolce Vita.mp3"></audio>
+                    <audio id="locksong" loop src="sounds/myspacemark - dolce vita.mp3"></audio>
                     <div id="songbuttons">
                         <img onclick="songnext(-1)" src="icons/songl.png" alt="">
                         <img id="songp" onclick="togglesong()" src="icons/songplay.png" alt="">
@@ -726,7 +835,15 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
         <div id="main">
+
+
+
             <div id="appdiv">
                 <a href="https://www.youtube.com/c/myspacemark" target="_blank"><img src="icons/youtube.png" alt="">
                     <p>Youtube</p>
@@ -739,7 +856,7 @@
                     <p>Soundcloud</p>
                 </a><a target="_blank"><img src="icons/apps.png" alt="">
                     <p>App Store</p>
-                </a><a target="_blank"><img src="icons/note.png" alt="">
+                </a><a onclick="turnonnote()" target="_blank"><img src="icons/note.png" alt="">
                     <p>Notes</p>
                 </a>
                 <a href="https://www.instagram.com/myspacemark555" target="_blank"><img src="icons/ig.png" alt="">
@@ -804,9 +921,9 @@
 
     // Array of songs
     const songs = [
-        "sounds/Dolce Vita.mp3",
-        "sounds/spring break.mp3",
-        "sounds/Giuseppe.mp3",
+        "sounds/myspacemark - dolce vita.mp3",
+        "sounds/myspacemark - spring break.mp3",
+        "sounds/myspacemark - Giuseppe.mp3",
     ];
 
     let currentSong = 0;
@@ -984,11 +1101,37 @@
 </script>
 
 <script>
+    function turnonnote() {
+        // fademain();
+
+
+      
+                document.getElementById("main").style.display = "none"
+        document.getElementById("notediv").style.display = "block"
+
+    }
+
+    function turnoffnote() {
+        document.getElementById("notediv").style.display = "none"
+
+          document.getElementById("main").style.display = "flex";
+    
+     
+    }
+</script>
+
+<script>
+    function fademain() {
+        document.getElementById("iphonediv").style.opacity = "0";
+    }
+</script>
+
+<script>
     //CAMERA PROJECT
     const cameraDiv = document.getElementById("cameradiv");
 
     function turnoncamera() {
-        document.getElementById("iphonediv").style.opacity = "0";
+        fademain();
 
         cameraDiv.style.display = "flex";
         video.autoplay = true;
