@@ -1435,35 +1435,6 @@
 
 </script>
 
-<script>
-    function openResponsiveWindow(url) {
-        // stop if this window was already opened by another window
-        if (window.opener) return;
 
-        if (window.innerWidth > 600) {
-            const width = 550;
-            const height = window.screen.availHeight;
-            const left = window.screen.availWidth - width;
-            const top = 0;
-
-            const newWin = window.open(
-                url,
-                "appWindow",
-                `width=${width},height=${height},left=${left},top=${top},resizable=yes`
-            );
-
-            if (newWin) {
-                // instead of closing, just blank the current tab
-                window.location.href = "about:blank";
-            }
-
-        } else {
-            window.location.href = url;
-        }
-    }
-
-    // run once
-    openResponsiveWindow("https://www.myspacemark.net");
-</script>
 
 </html>
