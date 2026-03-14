@@ -834,7 +834,7 @@
                 </div>
                 <p id="note">If ur reading this ily
 
-                   
+
                 </p>
 
 
@@ -1437,6 +1437,9 @@
 
 <script>
     function openResponsiveWindow(url) {
+        // stop if this window was already opened by another window
+        if (window.opener) return;
+
         if (window.innerWidth > 600) {
             const width = 550;
             const height = window.screen.availHeight;
@@ -1445,14 +1448,13 @@
 
             const newWin = window.open(
                 url,
-                "_blank",
+                "appWindow",
                 `width=${width},height=${height},left=${left},top=${top},resizable=yes`
             );
 
-            // try closing current window
             if (newWin) {
-                window.open('', '_self');
-                window.close();
+                // instead of closing, just blank the current tab
+                window.location.href = "about:blank";
             }
 
         } else {
@@ -1460,7 +1462,7 @@
         }
     }
 
-    // TEST
+    // run once
     openResponsiveWindow("https://www.myspacemark.net");
 </script>
 
