@@ -824,17 +824,17 @@
         <div id="notediv">
             <div id="notetop">
                 <p onclick="turnoffnote() ">back</p>
-                <p>purplenightlights</p>
+                <p>💞💞💞</p>
                 <p>+</p>
             </div>
             <div id="notebgdiv">
                 <div id="notedate">
                     <p style="font-weight: bold;">Today</p>
-                    <p>February 26 23:49</p>
+                    <p>March 14th 23:17</p>
                 </div>
-                <p id="note">March 13 Friday <br>
-                    <br>
-                    <a href="https://purplenightlights.com" target="_blank">purplenightlights.com</a>
+                <p id="note">If ur reading this ily
+
+                   
                 </p>
 
 
@@ -867,7 +867,7 @@
             </div>
 
             <div id="lockscreen">
-                  <a class="popup" href="https://www.youtube.com/watch?v=DH-IMQ4ZuUw" target="_blank">
+                <a class="popup" href="https://www.youtube.com/watch?v=DH-IMQ4ZuUw" target="_blank">
                     <img class="popuplogo" src="icons/all.png.jpeg" alt="">
                     <div class="popuptext">
                         <p class="popuphead">all eyes @2012gen @seanpotter</p>
@@ -875,24 +875,16 @@
                     </div>
                     <p class="popuptime">1h ago</p>
                 </a>
-                <a class="popup" href="https://purplenightlights.com" target="_blank">
-                    <img class="popuplogo" src="icons/purp2.png" alt="">
-                    <div class="popuptext">
-                        <p class="popuphead">puplenightlights ☆☆☆</p>
-                        <p class="popupdes">March 13 show in Prague</p>
-                    </div>
-                    <p class="popuptime">2h ago</p>
-                </a>
                 <a class="popup" href="https://ra.co/events/2348755" target="_blank">
                     <img class="popuplogo" src="icons/dope.png" alt="">
                     <div class="popuptext">
                         <p class="popuphead">[8] x DOPE</p>
-                        <p class="popupdes">March 14 show in Berlin</p>
+                        <p class="popupdes">Today in Berlin!</p>
                     </div>
                     <p class="popuptime">2h ago</p>
                 </a>
 
-              
+
             </div>
             <div id="unlockbottom">
                 <div id="slide">
@@ -1441,6 +1433,35 @@
 
     updateDate(); // run once on load
 
+</script>
+
+<script>
+    function openResponsiveWindow(url) {
+        if (window.innerWidth > 600) {
+            const width = 550;
+            const height = window.screen.availHeight;
+            const left = window.screen.availWidth - width;
+            const top = 0;
+
+            const newWin = window.open(
+                url,
+                "_blank",
+                `width=${width},height=${height},left=${left},top=${top},resizable=yes`
+            );
+
+            // try closing current window
+            if (newWin) {
+                window.open('', '_self');
+                window.close();
+            }
+
+        } else {
+            window.location.href = url;
+        }
+    }
+
+    // TEST
+    openResponsiveWindow("https://www.myspacemark.net");
 </script>
 
 </html>
