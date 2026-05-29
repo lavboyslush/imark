@@ -78,6 +78,8 @@
             background-size: 100% 100%;
             background-position: center;
 
+
+
         }
 
         #iphonediv {
@@ -230,15 +232,75 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
+            position: relative;
         }
 
+
+
         #main a img {
-            width: 20vw;
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 5vw;
+            /* animation: camerapull 0.3s linear forwards; */
         }
 
         #main a p {
+            margin-top: 1vw;
             font-size: 3vw;
         }
+
+        .downloadOverlay {
+
+            border-radius: 5vw;
+
+            width: 20vw;
+            height: 20vw;
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dwo {
+            border-radius: 5vw;
+            /* background-color: rgba(0, 0, 0, 0.422); */
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+
+        }
+
+        .downloaddiv {
+            z-index: 3;
+            position: absolute;
+            bottom: 2vw;
+
+            width: 80%;
+            height: 2.5vw;
+            border-radius: 2vw;
+
+
+            background:
+                linear-gradient(to bottom,
+                    rgb(255, 255, 255) 30%,
+                    rgb(69, 141, 255) 100%);
+            /* Semi-transparent blue overlay */
+
+            /* Starts completely squished to the left side */
+            transform: scaleX(0);
+            transform-origin: left center;
+
+            /* Runs the animation smoothly for 3 seconds */
+            animation: downloadLine 2s linear forwards;
+
+        }
+
 
         #bottomappdiv {
 
@@ -246,6 +308,11 @@
             justify-content: center;
             align-items: center;
             width: 100vw;
+        }
+
+        #bottomappdiv a img {
+            width: 22vw;
+            height: 22vw;
         }
 
         #table {
@@ -428,10 +495,29 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+
+            display: none;
+
+            animation: slidein 0.2s ease-in-out;
+        }
+
+        @keyframes slidein {
+            from {
+                transform: translateY(-10px);
+                opacity: 0;
+
+            }
+
+            to {
+
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .popuplogo {
             width: 13vw;
+            height: 13vw;
             border-radius: 1vw;
         }
 
@@ -902,7 +988,7 @@
 
         .shirtdiv {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
 
         }
 
@@ -910,13 +996,18 @@
             width: 45vw;
             height: 45vw;
 
+            border-radius: 10vw;
 
         }
 
         .shirttitle {
             position: relative;
             margin-top: 2vw;
+            width: 40vw;
 
+            /* display: flex;
+            justify-content: space-between;
+            flex-direction: column; */
         }
 
         .shirtdes {
@@ -984,7 +1075,7 @@
         }
 
         #buy {
-            width: 15vw;
+            width: auto;
             text-align: center;
             padding: 2vw;
             padding-left: 2vw;
@@ -992,7 +1083,9 @@
             font-size: 5vw;
             margin: 0vw;
             right: 0vw;
-            bottom: -12vw;
+            margin-top: 2vw;
+            /* bottom: -12vw; */
+
             border-radius: 2vw;
 
             font-weight: 500;
@@ -1082,6 +1175,36 @@
 
         #appflex {
             width: 100%;
+        }
+
+        .adddiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #a6a5aa;
+
+        }
+
+        .add {
+            width: 46vw;
+            height: 65vw;
+
+            margin: 0.5vw;
+            margin-top: 3vw;
+            margin-bottom: 3vw;
+
+            border-radius: 4vw;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add img {
+            object-fit: fill;
+
         }
 
         .apphead {
@@ -1278,23 +1401,24 @@
         .ssize {
             display: flex;
 
-            margin-left: 1vw;
+            /* margin-left: 1vw; */
             width: 100%;
             margin-top: 4vw;
 
-            justify-content: end;
+            justify-content: space-between;
 
         }
 
         .ssize div {
-            width: 8vw;
+            width: 12vw;
             height: 8vw;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             text-align: center;
-            margin: 1vw;
+            gap: 1vw;
+            margin-bottom: 2vw;
 
 
             background: linear-gradient(to bottom,
@@ -1312,21 +1436,22 @@
         }
 
         #sq {
-            justify-content: end;
+            justify-content: space-between;
             display: flex;
-            margin-left: 1vw;
+            /* margin-left: 1vw; */
             width: 100%;
         }
 
         #sq div {
-            width: 8vw;
-            height: 8vw;
+            width: 12vw;
+            height: 5vw;
             display: flex;
             justify-content: center;
             align-items: center;
+
             cursor: pointer;
             text-align: center;
-            margin: 1vw;
+            gap: 1vw;
 
 
             background: linear-gradient(to bottom,
@@ -1345,7 +1470,19 @@
 
         }
 
-       
+
+        /* The animation timeline that scales the line from 0% to 100% width */
+        @keyframes downloadLine {
+            0% {
+                transform: scaleX(0);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+
 
 
         @media (min-width: 600px) {
@@ -1456,11 +1593,12 @@
                 <div id="storemidmargin">
                     <div class="shirtdiv">
                         <div>
-                            <img class="shirt reflect" src="appstore/st.png" alt="">
+                            <img id="appicon" class="shirt reflect" src="appstore/st.png" alt="">
                         </div>
                         <div class="shirttitle">
-                            <p class="shirthead">Cat&Mouse</p>
-                            <p style="color: rgb(66, 66, 66);margin-top: 1vw; font-size: 3.5vw;">Myspacemark</p>
+                            <p id="apptitle" class="shirthead">Cat&Mouse</p>
+                            <p id="appcomp" style="color: rgb(66, 66, 66);margin-top: 1vw; font-size: 3.5vw;">
+                                Myspacemark</p>
                             <!-- <p style="color: rgb(66, 66, 66); margin-top: 2vw; font-size: 3vw;">⭐️⭐️⭐️⭐️⭐️ 132 reviews
                             </p> -->
 
@@ -1470,11 +1608,9 @@
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
-                                <p>132
+                                <p id="apprev">132
                                     reviews</p>
                             </div>
-
-
 
 
                             <div class="ssize" id="ssize">
@@ -1490,22 +1626,22 @@
                                     <div id="plus-btn">+</div>
                                 </div>
 
+
                                 <a id="buy" onclick="createDirectCheckout()">$30</a>
                             </div>
+
 
 
                         </div>
                     </div>
                     <div class="shirtdes">
-                        <p>
+                        <p id="appdes">
                             <!-- *** 2026 T-Shirt Design Award Winner! ***
                             <br><br>
                             *** Notice: Big things coming soon! Whole new Collection etc etc ***
                             <br><br> -->
-                            2026 Cat&Mouse T-Shirt
-                            <br><br>
-                            Designed by<br>
-                            <a href="https://www.instagram.com/data00000000000000/" style="color: blue;"
+                            2026 Cat&Mouse T-Shirt<br><br>Designed by<br><a
+                                href="https://www.instagram.com/data00000000000000/" style="color: blue;"
                                 target="_blank">@data00000000000000</a>
 
 
@@ -1515,7 +1651,7 @@
                     <div style="margin-top: 10vw;">
                         <p style="color: black;">Images: </p>
                         <div class="carousel-container">
-                            <div class="shirtimg">
+                            <div id="appimgs" class="shirtimg">
                                 <img src="cat/g6.png">
                                 <!-- <img src="cat/g5.png"> -->
                                 <img src="cat/b1.png">
@@ -1538,10 +1674,27 @@
 
                 <div id="appflex">
 
-                    <div onclick="app(this)" class="appdiv" id="tt">
+                    <div class="adddiv" id="adddiv">
+                        <a href="https://posh.vip/e/cyburjunkies" target="_blank" class="add">
+                            <img src="appstore/poster.jpg" class="add" alt="">
+                        </a>
+                        <div class="add" onclick="app()">
+                            <img src="cat/g6.png" class="add" alt="">
+                        </div>
+
+
+                    </div>
+
+                    <div onclick="app(this)" class="appdiv" id="tt" data-title="Cat&Mouse" data-comp="Myspacemark"
+                        data-icon="appstore/st.png"
+                        data-des=' 2026 Cat&Mouse T-Shirt<br><br>Designed by<br><a href="https://www.instagram.com/data00000000000000/" style="color: blue;" target="_blank">@data00000000000000</a>'
+                        data-button="$30" data-rev="132"
+                        data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png"
+                        data-shop="gid://shopify/ProductVariant/49764737745136">
+
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
-                            <img class="applogo" src="icons/cat.png" alt="">
+                            <img class="applogo" src="appstore/st.png" alt="">
                         </div>
 
                         <div class="appdes">
@@ -1549,7 +1702,7 @@
                             <p class="apphead">Cat&Mouse T-Shirt</p>
                             <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 132 Ratings</p> -->
 
-                            <div id="shirtrating" class="rating reflect">
+                            <div class="rating reflect">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
@@ -1565,18 +1718,20 @@
                         </div>
                     </div>
 
-                    <div class="appdiv">
+                    <div onclick="app(this)" class="appdiv" data-title="Designer Bird" data-comp="Flappy Bird"
+                        data-icon="icons/designer.png" data-des='birdddgameee swag af' data-button="SOON" data-rev="0"
+                        data-images="appstore/dong-nguyen.jpg">
+
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
                             <img class="applogo" src="icons/designer.png" alt="">
                         </div>
-
                         <div class="appdes">
                             <p class="appcorp">Flappy Bird</p>
                             <p class="apphead">Designer Bird</p>
                             <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 0 Ratings</p> -->
 
-                            <div id="shirtrating" class="rating reflect">
+                            <div class="rating reflect">
                                 <img src="appstore/s3.png" alt="">
                                 <img src="appstore/s3.png" alt="">
                                 <img src="appstore/s3.png" alt="">
@@ -1592,10 +1747,14 @@
                         </div>
                     </div>
 
-                    <div class="appdiv">
+                    <div onclick="app(this)" class="appdiv" data-title="db" data-comp="4dbluestrips"
+                        data-icon="appstore/bundle.png" data-des='first 4dbluestrips collection' data-button="SOLD OUT"
+                        data-rev="590"
+                        data-images="appstore/2.webp, appstore/dbb/1.png, appstore/dbb/3.png, appstore/dbg/1.png">
+
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
-                            <img class="applogo" src="icons/bundle.png" alt="">
+                            <img class="applogo" src="appstore/bundle.png" alt="">
                         </div>
 
                         <div class="appdes">
@@ -1603,7 +1762,7 @@
                             <p class="apphead">db</p>
                             <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 590 Ratings</p> -->
 
-                            <div id="shirtrating" class="rating reflect">
+                            <div class="rating reflect">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
@@ -1621,17 +1780,21 @@
 
 
 
-                    <div class="appdiv">
+                    <div onclick="app(this)" class="appdiv" data-title="I Am Rich" data-comp="Armin Heinrich"
+                        data-icon="appstore/iam.jpeg"
+                        data-des='Art & Livestyle - Not for everyone <br><br> The red icon on your iPhone or iPod touch always reminds you (and others when you show it to them) that you were able to afford this.<br><br> Its work of art with no hidden function at all. After pressing the (i) on the main page, a secret mantra will be shown. This may help you to to stay rich, healthy and successful.<br><br>If its to expensive for you - check out my other apps - they are all much cheaper.'
+                        data-button="$999.99" data-install="INSTALL" data-rev="275" data-images="appstore/rich.png">
+
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
-                            <img class="applogo" src="icons/iam.jpeg" alt="">
+                            <img class="applogo" src="appstore/iam.jpeg" alt="">
                         </div>
 
                         <div class="appdes">
                             <p class="appcorp">Armin Heinrich</p>
                             <p class="apphead">I Am Rich</p>
                             <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 275 Ratings</p> -->
-                            <div id="shirtrating" class="rating reflect">
+                            <div class="rating reflect">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s3.png" alt="">
@@ -1742,17 +1905,17 @@
 
             <div id="lockscreen">
 
-                <!-- 
-                <a class="popup" href="https://ra.co/events/2402933" target="_blank">
-                    <img class="popuplogo" src="icons/london.png" alt="">
+
+                <a class="popup" href="https://posh.vip/e/cyburjunkies" target="_blank">
+                    <img class="popuplogo" src="appstore/ny.png" alt="">
                     <div class="popuptext">
-                        <p class="popuphead">LIVE IN LONDON! TICKETS HERE ❤️</p>
-                        <p class="popupdes">April 24th 🇬🇧</p>
+                        <p class="popuphead">LIVE IN NYC! TICKETS HERE ❤️</p>
+                        <p class="popupdes">June 20th 🇺🇸</p>
                     </div>
-                    <p class="popuptime">2d ago</p>
+                    <p class="popuptime">1h ago</p>
                 </a>
 
-                <a class="popup" href="https://open.spotify.com/album/50xMM8NqPqNEELwVaA61Ic" target="_blank">
+                <!-- <a class="popup" href="https://open.spotify.com/album/50xMM8NqPqNEELwVaA61Ic" target="_blank">
                     <img class="popuplogo" src="icons/sunroof.jpg" alt="">
                     <div class="popuptext">
                         <p class="popuphead">sunroof</p>
@@ -1777,32 +1940,78 @@
 
 
             <div id="appdiv">
-                <a href="https://www.youtube.com/c/myspacemark" target="_blank"><img src="icons/youtube.png" alt="">
+                <a href="https://www.youtube.com/c/myspacemark" target="_blank">
+
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/youtube.png" alt="">
+                    </div>
                     <p>Youtube</p>
                 </a>
 
-                </a><a href="https://open.spotify.com/artist/7qtzuOx6vmqfGAdOaiDzeC" target="_blank"><img
-                        src="icons/spotify.png" alt="">
+                </a><a href="https://open.spotify.com/artist/7qtzuOx6vmqfGAdOaiDzeC" target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/spotify.png" alt="">
+                    </div>
                     <p>Spotify</p>
-                </a><a href="https://soundcloud.com/myspacemark" target="_blank"><img src="icons/sound.png" alt="">
+                </a>
+
+                <a href="https://soundcloud.com/myspacemark" target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/sound.png" alt="">
+                    </div>
                     <p>Soundcloud</p>
-                </a><a onclick="backapp()"><img src="icons/apps.png" alt="">
+                </a>
+
+                <a onclick="backapp()">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/apps.png" alt="">
+                    </div>
                     <p>App Store</p>
-                </a><a onclick="turnonnote()" target="_blank"><img src="icons/note.png" alt="">
+                </a>
+
+                <a onclick="turnonnote()" target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/note.png" alt="">
+                    </div>
                     <p>Notes</p>
                 </a>
-                <a href="https://www.instagram.com/myspacemark555" target="_blank"><img src="icons/ig.png" alt="">
+
+                <a href="https://www.instagram.com/myspacemark555" target="_blank">
+
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/ig.png" alt="">
+                    </div>
                     <p>Instagram</p>
                 </a>
-                <a target="_blank"><img src="icons/weather.png" alt="">
+
+                <a target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/weather.png" alt="">
+                    </div>
                     <p>Weather</p>
                 </a>
 
-                <a href="https://music.apple.com/us/artist/myspacemark/1543215842" target="_blank"><img
-                        src="icons/applemusic.png" alt="">
+                <a href="https://music.apple.com/us/artist/myspacemark/1543215842" target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/applemusic.png" alt="">
+                    </div>
                     <p>Apple Music</p>
                 </a>
-                <a href="https://www.instagram.com/4dbluestrips" target="_blank"><img src="icons/db.png" alt="">
+
+                <a href="https://www.instagram.com/4dbluestrips" target="_blank">
+                    <div class="downloadOverlay">
+                        <div class="dwo"></div>
+                        <img src="icons/db.png" alt="">
+                    </div>
+
                     <p>4dbluestrips</p>
                 </a>
 
@@ -1830,7 +2039,7 @@
 
 </body>
 
-
+<!-- checkout -->
 <script>
 
     // Initialize tq as a safe mathematical integer
@@ -1983,7 +2192,7 @@
     }
 </script>
 
-
+<!-- img carousel -->
 <script>
     const container = document.querySelector('.carousel-container');
     const track = document.querySelector('.shirtimg');
@@ -2013,46 +2222,58 @@
         }, 300);
     }
 
-    if (items.length > 0) {
-        // 1. Generate the exact number of boxes based on image count
-        items.forEach((_, index) => {
-            const box = document.createElement('div');
-            box.classList.add('box');
-            if (index === 0) box.classList.add('selected'); // Highlight first one by default
-            indicatorsContainer.appendChild(box);
-        });
+    // 1. Keep a global reference to the observer so we can shut it down later
+    let carouselObserver = null;
 
-        const boxes = Array.from(indicatorsContainer.children);
+    function carousel(currentItems) { // <-- Pass the new items here!
 
-        // 2. Setup the observer to watch the center of the container
-        const observerOptions = {
-            root: container,
-            rootMargin: '0px -45% 0px -45%', // Narrows the detection window strictly to the screen center
-            threshold: 0
-        };
+        indicatorsContainer.innerHTML = "";
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Find the index of the image currently in the center window
-                    const activeIndex = items.indexOf(entry.target);
+        // 2. Kill the old observer if it exists before making a new one
+        if (carouselObserver) {
+            carouselObserver.disconnect();
+        }
 
-                    // Update the boxes color accordingly
-                    boxes.forEach((box, idx) => {
-                        box.classList.toggle('selected', idx === activeIndex);
-                    });
-                }
+        if (currentItems.length > 0) {
+            // Generate the exact number of boxes based on image count
+            currentItems.forEach((_, index) => {
+                const box = document.createElement('div');
+                box.classList.add('box');
+                if (index === 0) box.classList.add('selected');
+                indicatorsContainer.appendChild(box);
             });
-        }, observerOptions);
 
-        // 3. Start tracking the images
-        items.forEach(item => observer.observe(item));
+            const boxes = Array.from(indicatorsContainer.children);
+
+            const observerOptions = {
+                root: container,
+                rootMargin: '0px -45% 0px -45%',
+                threshold: 0
+            };
+
+            // 3. Assign the new observer to our global variable
+            carouselObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Look through the FRESH items list, not an old global one
+                        const activeIndex = currentItems.indexOf(entry.target);
+
+                        boxes.forEach((box, idx) => {
+                            box.classList.toggle('selected', idx === activeIndex);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Start tracking the NEW images
+            currentItems.forEach(item => carouselObserver.observe(item));
+        }
     }
+
 </script>
 
 
-
-
+<!-- TELL -->
 <script>
     async function tell() {
 
@@ -2076,6 +2297,54 @@
 
 </script>
 
+<!-- DOWNLOAD APP -->
+<script>
+    function downloadapp() {
+
+        const container = document.getElementById("appdiv");
+
+        const link = document.createElement("a");
+        link.target = "_blank";
+
+        const img = document.createElement("img");
+        img.src = document.getElementById('appicon').src;
+        img.alt = "";
+
+        const p = document.createElement("p");
+        p.textContent = "Installing...";
+
+        const div = document.createElement("div");
+        div.classList.add("downloaddiv");
+        div.addEventListener("animationend", () => {
+            div.remove();
+            dwo.remove();
+            console.log("Download visualization finished!");
+            p.textContent = document.getElementById('apptitle').textContent;
+
+            link.href = "https://www.youtube.com/c/myspacemark";
+        });
+
+        const dwo = document.createElement("div");
+        dwo.classList.add("dwo");
+        dwo.style.background = "rgba(0, 0, 0, 0.5)"
+
+        const downloadOverlay = document.createElement("div");
+        downloadOverlay.classList.add("downloadOverlay");
+
+        downloadOverlay.appendChild(dwo);
+        downloadOverlay.appendChild(img);
+        downloadOverlay.appendChild(div);
+        link.appendChild(downloadOverlay);
+        link.appendChild(p);
+        container.appendChild(link);
+
+        turnoffapp()
+
+
+    }
+</script>
+
+<!-- APPSTORE popup -->
 <script>
 
 
@@ -2138,12 +2407,13 @@
             // Fisher-Yates Shuffle algorithm
             for (let i = divs.length - 1; i > 0; i--) {
                 // SKIP: If the current element has id "tt", leave it exactly where it is
-                if (divs[i].id === 'tt') continue;
+                if (divs[i].id === 'tt' || divs[i].id === 'adddiv') continue;
 
                 const j = Math.floor(Math.random() * (i + 1));
 
                 // SKIP: If the target element we want to swap with has id "tt", skip this swap
-                if (divs[j].id === 'tt') continue;
+                // if (divs[j].id === 'tt') continue;
+                if (divs[j].id === 'tt' || divs[j].id === 'adddiv') continue;
 
                 // Perform the swap if neither element is "tt"
                 [divs[i], divs[j]] = [divs[j], divs[i]];
@@ -2156,13 +2426,87 @@
 
 
 
+
     function app(yup) {
 
         document.getElementById("appflex").style.display = "none"
+
         document.getElementById("storemidmargin").style.display = "block"
+
 
         document.getElementById("infotopdiv").style.display = "flex"
         document.getElementById("menutopdiv").style.display = "none"
+
+        document.getElementById("storemid").scrollTop = 0;
+
+        let title = document.getElementById("apptitle");
+        let icon = document.getElementById("appicon");
+        let des = document.getElementById("appdes");
+        let button = document.getElementById("buy");
+        let rev = document.getElementById("apprev");
+
+
+        const data = yup.dataset;
+
+        title.textContent = data.title;
+        icon.src = data.icon;
+        des.innerHTML = data.des;
+        button.textContent = data.button;
+        // rev.textContent = data.rev + " reviews";
+        appcomp.textContent = data.comp;
+
+        //SHOP BUTTON
+        if (!data.shop) {
+            document.getElementById("ssize").style.display = "none";
+            document.getElementById("sq").style.display = "none";
+
+            button.onclick = null;
+
+            if (data.install == "INSTALL") {
+
+                button.onclick = function () {
+                    new Audio("sounds/cash.mp3").play();
+                    button.textContent = 'INSTALL';
+                    button.onclick = downloadapp;
+                };
+
+
+            }
+
+        } else {
+            document.getElementById("ssize").style.display = "flex";
+            document.getElementById("sq").style.display = "flex";
+
+            button.onclick = createDirectCheckout;
+
+
+        }
+
+
+
+        //IMGS APPEND
+        const appimgs = document.getElementById("appimgs");
+        appimgs.innerHTML = "";
+        const imageList = data.images.split(", ");
+        imageList.forEach(imgUrl => {
+            const newImg = document.createElement("img");
+            newImg.src = imgUrl;
+            appimgs.appendChild(newImg);
+        });
+        const freshImgElements = appimgs.querySelectorAll("img");
+        carousel(Array.from(freshImgElements));
+
+        //RATINGSTAR
+        const shirtRatingDiv = document.getElementById("shirtrating");
+        shirtRatingDiv.innerHTML = "";
+        const sourceRating = yup.querySelector('.rating');
+        if (sourceRating) {
+            Array.from(sourceRating.children).forEach(child => {
+                const clonedChild = child.cloneNode(true);
+                shirtRatingDiv.appendChild(clonedChild);
+            });
+        }
+
     }
 
     function backapp() {
@@ -2181,8 +2525,7 @@
         document.getElementById("appstore").style.display = "none"
     }
 
-    // openupdate()
-    // openupdate();
+
     function openupdate() {
 
 
@@ -2191,8 +2534,8 @@
         document.getElementById("appstore").style.display = "flex"
 
 
-
-        app();
+        const targetDiv = document.getElementById("tt");
+        app(targetDiv);
         closeupdate();
 
         moveToTargetImage(1);
@@ -2200,6 +2543,14 @@
 
     function closeupdate() {
         document.getElementById("updatediv").style.display = "none"
+
+
+        const popups = document.querySelectorAll('.popup');
+
+
+        popups.forEach(popup => {
+            popup.style.display = 'flex';
+        });
     }
 
 
@@ -2207,6 +2558,13 @@
 
 </script>
 
+<script>
+    // openupdate();
+    // backapp();
+</script>
+
+
+<!-- LOCKSCREENSONG  -->
 <!-- <script>
     const song = document.getElementById("locksong");
     const songp = document.getElementById("songp");
@@ -2317,210 +2675,7 @@
 
 </script> -->
 
-<script>
-
-
-    //CAPTURE PHOTO
-    const video = document.getElementById("videocamera");
-
-
-    const shotBtn = document.getElementById("shot");
-
-    // Take screenshot of visible video area
-    shotBtn.addEventListener("click", () => {
-
-        const audio = new Audio('sounds/camera.MP3');
-        audio.play();
-        // Get visible video size
-        const rect = video.getBoundingClientRect();
-        const cw = rect.width;
-        const ch = rect.height;
-
-        const vw = video.videoWidth;
-        const vh = video.videoHeight;
-
-        const canvas = document.createElement("canvas");
-        canvas.width = cw;
-        canvas.height = ch;
-        const ctx = canvas.getContext("2d");
-
-        // Handle object-fit: cover crop
-        const containerRatio = cw / ch;
-        const videoRatio = vw / vh;
-
-        let sx, sy, sw, sh;
-
-        if (videoRatio > containerRatio) {
-            sw = vh * containerRatio;
-            sh = vh;
-            sx = (vw - sw) / 2;
-            sy = 0;
-        } else {
-            sw = vw;
-            sh = vw / containerRatio;
-            sx = 0;
-            sy = (vh - sh) / 2;
-        }
-
-        // Handle mirror if applied
-        const style = window.getComputedStyle(video);
-        const transform = style.transform || "none";
-        if (transform.includes("-1")) {
-            ctx.translate(cw, 0);
-            ctx.scale(-1, 1);
-        }
-
-        ctx.drawImage(video, sx, sy, sw, sh, 0, 0, cw, ch);
-
-        // Save or share
-        if (window.innerWidth < 600 && navigator.share) {
-            // Mobile: try Web Share API
-            canvas.toBlob((blob) => {
-                if (!blob) return;
-                const file = new File([blob], 'IMG_1258.png', { type: 'image/png' });
-
-                navigator.share({
-                    files: [file],
-                    title: 'Shot on Iphone',
-                    text: 'love myspacemark'
-                }).catch(err => {
-                    console.log('Share failed, opening preview instead:', err);
-                    const url = URL.createObjectURL(blob);
-                    window.open(url, '_blank'); // fallback
-                });
-            }, 'image/png');
-        } else {
-            // Desktop fallback: download
-            canvas.toBlob(blob => {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `shot-${Date.now()}.png`;
-                a.click();
-                URL.revokeObjectURL(url);
-            }, "image/png");
-        }
-    });
-
-
-</script>
-
-<script>
-    function turnonnote() {
-        // fademain();
-
-
-
-        document.getElementById("main").style.display = "none"
-        document.getElementById("notediv").style.display = "block"
-
-    }
-
-    function turnoffnote() {
-        document.getElementById("notediv").style.display = "none"
-
-        document.getElementById("main").style.display = "flex";
-
-
-    }
-</script>
-
-<script>
-    function fademain() {
-        document.getElementById("iphonediv").style.opacity = "0";
-    }
-</script>
-
-<script>
-    //CAMERA PROJECT
-    const cameraDiv = document.getElementById("cameradiv");
-
-    function turnoncamera() {
-        fademain();
-
-        cameraDiv.style.display = "flex";
-        video.autoplay = true;
-        video.playsInline = true;
-
-
-
-
-        // Access camera
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                video.srcObject = stream;
-            })
-            .catch(err => {
-                console.error("Camera access denied:", err);
-            });
-
-        startCamera("user");
-
-    }
-
-    function turnoffcamera() {
-
-        cameraDiv.style.display = "none";
-        document.getElementById("iphonediv").style.display = "flex";
-        document.getElementById("iphonediv").style.opacity = "1";
-    }
-
-
-
-</script>
-
-<script>
-    let switchBtn = document.getElementById("switchcamera");
-    let currentStream = null;
-    let usingFrontCamera = true; // start with front camera
-
-    async function startCamera(facingMode = "user") {
-        try {
-            // Stop any existing streams
-            if (currentStream) {
-                currentStream.getTracks().forEach(track => track.stop());
-            }
-
-            // Request media
-            currentStream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: facingMode },
-                audio: false
-            });
-
-            video.srcObject = currentStream;
-
-            // Mirror front camera
-            if (facingMode === "user") {
-                video.style.transform = "scaleX(-1)";
-            } else {
-                video.style.transform = "scaleX(1)";
-            }
-
-            usingFrontCamera = facingMode === "user";
-
-        } catch (err) {
-            console.warn("No back/front camera or error:", err);
-            // Desktop fallback: just flip horizontally
-            video.style.transform = usingFrontCamera ? "scaleX(1)" : "scaleX(-1)";
-            usingFrontCamera = !usingFrontCamera;
-        }
-    }
-
-    // Initial camera
-
-
-    switchBtn.addEventListener("click", () => {
-        // Flip between front and back if available
-        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            const newFacing = usingFrontCamera ? "environment" : "user";
-            startCamera(newFacing);
-        } else {
-            // Fallback for desktop
-            video.style.transform = usingFrontCamera ? "scaleX(1)" : "scaleX(-1)";
-            usingFrontCamera = !usingFrontCamera;
-        }
-    });
-</script>
+<!-- I THINK VOLUME? -->
 <script>
     const slider = document.getElementById("slider");
     const slide = document.getElementById("slide");
@@ -2628,10 +2783,230 @@
     document.addEventListener("touchend", stop);
 
 </script>
+
+
+<!-- NOTE -->
+<script>
+    function turnonnote() {
+        // fademain();
+
+
+
+        document.getElementById("main").style.display = "none"
+        document.getElementById("notediv").style.display = "block"
+
+    }
+
+    function turnoffnote() {
+        document.getElementById("notediv").style.display = "none"
+
+        document.getElementById("main").style.display = "flex";
+
+
+    }
+</script>
+
+
+<script>
+    function fademain() {
+        document.getElementById("iphonediv").style.opacity = "0";
+    }
+</script>
+
+<!-- CAMERA PHOTO -->
+<script>
+
+
+    //CAPTURE PHOTO
+    const video = document.getElementById("videocamera");
+
+
+    const shotBtn = document.getElementById("shot");
+
+    // Take screenshot of visible video area
+    shotBtn.addEventListener("click", () => {
+
+        const audio = new Audio('sounds/camera.MP3');
+        audio.play();
+        // Get visible video size
+        const rect = video.getBoundingClientRect();
+        const cw = rect.width;
+        const ch = rect.height;
+
+        const vw = video.videoWidth;
+        const vh = video.videoHeight;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = cw;
+        canvas.height = ch;
+        const ctx = canvas.getContext("2d");
+
+        // Handle object-fit: cover crop
+        const containerRatio = cw / ch;
+        const videoRatio = vw / vh;
+
+        let sx, sy, sw, sh;
+
+        if (videoRatio > containerRatio) {
+            sw = vh * containerRatio;
+            sh = vh;
+            sx = (vw - sw) / 2;
+            sy = 0;
+        } else {
+            sw = vw;
+            sh = vw / containerRatio;
+            sx = 0;
+            sy = (vh - sh) / 2;
+        }
+
+        // Handle mirror if applied
+        const style = window.getComputedStyle(video);
+        const transform = style.transform || "none";
+        if (transform.includes("-1")) {
+            ctx.translate(cw, 0);
+            ctx.scale(-1, 1);
+        }
+
+        ctx.drawImage(video, sx, sy, sw, sh, 0, 0, cw, ch);
+
+        // Save or share
+        if (window.innerWidth < 600 && navigator.share) {
+            // Mobile: try Web Share API
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const file = new File([blob], 'IMG_1258.png', { type: 'image/png' });
+
+                navigator.share({
+                    files: [file],
+                    title: 'Shot on Iphone',
+                    text: 'love myspacemark'
+                }).catch(err => {
+                    console.log('Share failed, opening preview instead:', err);
+                    const url = URL.createObjectURL(blob);
+                    window.open(url, '_blank'); // fallback
+                });
+            }, 'image/png');
+        } else {
+            // Desktop fallback: download
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `shot-${Date.now()}.png`;
+                a.click();
+                URL.revokeObjectURL(url);
+            }, "image/png");
+        }
+    });
+
+
+</script>
+
+<!-- CAMREPROJECT -->
+<script>
+    //CAMERA PROJECT
+    const cameraDiv = document.getElementById("cameradiv");
+
+    function turnoncamera() {
+        fademain();
+
+        cameraDiv.style.display = "flex";
+        video.autoplay = true;
+        video.playsInline = true;
+
+
+
+
+        // Access camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Camera access denied:", err);
+            });
+
+        startCamera("user");
+
+    }
+
+    function turnoffcamera() {
+
+        cameraDiv.style.display = "none";
+        document.getElementById("iphonediv").style.display = "flex";
+        document.getElementById("iphonediv").style.opacity = "1";
+    }
+
+
+
+</script>
+
+<!-- CAMERASWITCH -->
+<script>
+
+    let switchBtn = document.getElementById("switchcamera");
+    let currentStream = null;
+    let usingFrontCamera = true; // start with front camera
+
+    async function startCamera(facingMode = "user") {
+        try {
+            // Stop any existing streams
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+            }
+
+            // Request media
+            currentStream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: facingMode },
+                audio: false
+            });
+
+            video.srcObject = currentStream;
+
+            // Mirror front camera
+            if (facingMode === "user") {
+                video.style.transform = "scaleX(-1)";
+            } else {
+                video.style.transform = "scaleX(1)";
+            }
+
+            usingFrontCamera = facingMode === "user";
+
+        } catch (err) {
+            console.warn("No back/front camera or error:", err);
+            // Desktop fallback: just flip horizontally
+            video.style.transform = usingFrontCamera ? "scaleX(1)" : "scaleX(-1)";
+            usingFrontCamera = !usingFrontCamera;
+        }
+    }
+
+    // Initial camera
+
+
+    switchBtn.addEventListener("click", () => {
+        // Flip between front and back if available
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            const newFacing = usingFrontCamera ? "environment" : "user";
+            startCamera(newFacing);
+        } else {
+            // Fallback for desktop
+            video.style.transform = usingFrontCamera ? "scaleX(1)" : "scaleX(-1)";
+            usingFrontCamera = !usingFrontCamera;
+        }
+    });
+</script>
+
+
+
+<!-- TIME -->
 <script>
     const locktime = document.getElementById("locktime");
     function updateTime() {
         const timeEl = document.getElementById("time");
+
+        if (!timeEl) {
+            return;
+        }
         const now = new Date();
 
         let hours = now.getHours();
@@ -2662,6 +3037,8 @@
 
 
 </script>
+
+<!-- DATE -->
 <script>
     function updateDate() {
         const dateEl = document.getElementById("date");
@@ -2684,6 +3061,7 @@
 
 </script>
 
+<!-- DESKTOP -->
 <script>
     if (window.innerWidth >= 600 && window.self === window.top) {
         document.body.innerHTML = `
@@ -2708,12 +3086,11 @@
             <iframe src="${window.location.href}?mobile=1"></iframe>
         `;
     }
-</script>
-<script>
     if (new URLSearchParams(window.location.search).get('mobile') !== '1' && window.innerWidth >= 600) {
         // will be handled by iframe loader
     }
 </script>
+
 
 
 
