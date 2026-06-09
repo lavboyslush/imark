@@ -110,7 +110,7 @@
             font-size: 4vw;
         }
 
-        #top div {}
+
 
         #topmid {
             position: absolute;
@@ -1688,7 +1688,7 @@
                     <div onclick="app(this)" class="appdiv" id="tt" data-title="Cat&Mouse" data-comp="Myspacemark"
                         data-icon="appstore/st.png"
                         data-des=' 2026 Cat&Mouse T-Shirt<br><br>Designed by<br><a href="https://www.instagram.com/data00000000000000/" style="color: blue;" target="_blank">@data00000000000000</a>'
-                        data-button="$30" data-rev="132"
+                        data-button="$30" data-rev="934"
                         data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png"
                         data-shop="gid://shopify/ProductVariant/49764737745136">
 
@@ -1708,7 +1708,7 @@
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
                                 <img src="appstore/s1.png" alt="">
-                                <p>132
+                                <p>934
                                     reviews</p>
                             </div>
                         </div>
@@ -1748,8 +1748,9 @@
                     </div>
 
                     <div onclick="app(this)" class="appdiv" data-title="db" data-comp="4dbluestrips"
-                        data-icon="appstore/bundle.png" data-des='first 4dbluestrips collection<br><br>Designed by <a href="https://www.instagram.com/0131zomi/" style="color: blue;" target="_blank">@0131zomi</a>' data-button="SOLD OUT"
-                        data-rev="590"
+                        data-icon="appstore/bundle.png"
+                        data-des='first 4dbluestrips collection<br><br>Designed by <a href="https://www.instagram.com/0131zomi/" style="color: blue;" target="_blank">@0131zomi</a>'
+                        data-button="SOLD OUT" data-rev="590"
                         data-images="appstore/2.webp, appstore/dbb/1.png, appstore/dbb/3.png, appstore/dbg/1.png">
 
                         <div class="applogodiv">
@@ -3091,6 +3092,40 @@
     }
 </script>
 
+<script>
+    function isSoldOut() {
+        // 1. Get the current time
+        const now = new Date();
+
+        // 2. Define the strict deadline: June 10, 2026, at 00:00:00 Pacific Time
+        const deadlineStr = "2026-06-10T00:00:00";
+
+        // 3. Force JavaScript to interpret that deadline specifically in Pacific Time
+        const deadlineInPacific = new Date(new Date(deadlineStr).toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+        const nowInPacific = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
+
+        // 4. Return true if the current time has passed the deadline
+        return nowInPacific >= deadlineInPacific;
+    }
+
+    // --- HOW TO USE IT IN YOUR APPLICATION ---
+
+    if (isSoldOut()) {
+        console.log("Status: SOLD OUT. Disabling buy button.");
+
+        const button = document.getElementById("tt");
+
+        button.setAttribute("data-button", "SOLD OUT");
+        button.removeAttribute("data-shop");
+
+
+
+
+    } else {
+        console.log("Status: AVAILABLE. Items can still be purchased.");
+        // Code to allow normal checkout
+    }
+</script>
 
 
 
