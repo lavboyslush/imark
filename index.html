@@ -9,7 +9,7 @@
     <meta property="og:title" content="Myspacemark" />
     <meta name="description" content="" />
     <meta property="og:description" content="" />
-    <meta property="og:image" content="summer.jpg" />
+    <meta property="og:image" content="dfb4.jpg" />
     <meta property="og:url" content="https://www.myspacemark.net" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Myspacemark" />
@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="Myspacemark" />
     <meta name="twitter:description" content="" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="summer.jpg" />
+    <meta name="twitter:image" content="dfb4.jpg" />
 
 
     <link rel="icon" href="icons/c32.png" sizes="32x32" type="image/png">
@@ -86,7 +86,7 @@
             height: 100dvh;
             width: 100vw;
             /* background-color: aqua; */
-            background-image: url(vodka.jpg);
+            background-image: url(home.jpg);
             background-size: 100% 100dvh;
             background-position: center;
             z-index: 1;
@@ -94,13 +94,13 @@
             display: flex;
             /* display: none; */
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: start;
         }
 
         #top {
 
             width: 100%;
-            height: 8vw;
+            height: 4%;
             background-color: black;
 
             display: flex;
@@ -165,8 +165,8 @@
             align-items: center;
             flex-direction: column;
 
-            background-image: url(summer.jpg);
-            background-size: 120% 100%;
+            background-image: url(dfb4.jpg);
+            background-size: auto 100%;
             background-position: center;
         }
 
@@ -655,6 +655,19 @@
             text-align: center;
         }
 
+        #cameragallery {
+            width: 12vw;
+            height: 12vw;
+            outline: 1px solid rgb(138, 138, 138);
+
+            border-radius: 1vw;
+        }
+
+        #tovideo {
+            width: 15vw;
+            height: 15vw;
+        }
+
         #shot {
             display: flex;
             justify-content: center;
@@ -869,7 +882,8 @@
             justify-content: center;
             align-items: center;
 
-            border: 2px rgb(52, 52, 52) solid;
+            border-top: 2px rgb(52, 52, 52) solid;
+            border-bottom: 2px rgb(52, 52, 52) solid;
             /* box-sizing: border-box; */
         }
 
@@ -1410,7 +1424,7 @@
         }
 
         .ssize div {
-            width: 12vw;
+            width: 8vw;
             height: 8vw;
             display: flex;
             justify-content: center;
@@ -1517,7 +1531,7 @@
 
     <div id="updatediv">
         <p class="updatehead">Swag Update</p>
-        <p class="updatedes">Merch is now available for you. </p>
+        <p class="updatedes">New tshirts available in the SwagStore.</p>
 
         <div class="updatechoicediv">
             <p onclick="closeupdate()">Close</p>
@@ -1538,9 +1552,13 @@
 
 
         <div id="camerabottom">
-            <div>photos</div>
+            <div>
+                <img id="cameragallery" src="icons/my.jpg" alt="">
+            </div>
             <div id="shot"><img src="icons/cmr.png" alt=""></div>
-            <div>#</div>
+            <div>
+                <img id="tovideo" src="icons/video.png" alt="">
+            </div>
 
         </div>
 
@@ -1614,9 +1632,10 @@
 
 
                             <div class="ssize" id="ssize">
-                                <div data-id="gid://shopify/ProductVariant/49764737745136" class="selected">M</div>
-                                <div data-id="gid://shopify/ProductVariant/49764737777904">L</div>
-                                <div data-id="gid://shopify/ProductVariant/49764737810672">XL</div>
+                                <div data-id="gid://shopify/ProductVariant/49858327150832" class="">S</div>
+                                <div data-id="gid://shopify/ProductVariant/49858327183600" class="selected">M</div>
+                                <div data-id="gid://shopify/ProductVariant/49858327216368">L</div>
+                                <div data-id="gid://shopify/ProductVariant/49858327249136">XL</div>
                             </div>
 
                             <div>
@@ -1675,22 +1694,54 @@
                 <div id="appflex">
 
                     <div class="adddiv" id="adddiv">
-                        <a href="https://posh.vip/e/cyburjunkies" target="_blank" class="add">
-                            <img src="appstore/poster.jpg" class="add" alt="">
+                        <a class="add" onclick="app(targetDiv);">
+                            <img src="appstore/soon.jpg" class="add" alt="">
                         </a>
-                        <div class="add" onclick="app()">
-                            <img src="cat/g6.png" class="add" alt="">
+                        <div class="add" onclick="app(targetDiv);">
+                            <img src="appstore/apple/jb.jpg" class="add" alt="">
                         </div>
 
 
                     </div>
 
-                    <div onclick="app(this)" class="appdiv" id="tt" data-title="Cat&Mouse" data-comp="Myspacemark"
+                    <div onclick="app(this)" class="appdiv" id="tt" data-title="Big apple" data-comp="Myspacemark"
+                        data-icon="appstore/nyc.png"
+                        data-des='Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
+                        data-button="$30" data-rev="194"
+                        data-images="appstore/apple/jb.jpg, appstore/apple/jb2.jpg"
+                        data-shop="gid://shopify/ProductVariant/49858327183600">
+
+                        <div class="applogodiv">
+                            <img class="overapplogo" src="icons/over.png" alt="">
+                            <img class="applogo" src="appstore/nyc.png" alt="">
+                        </div>
+
+                        <div class="appdes">
+                            <p class="appcorp">Myspacemark</p>
+                            <p class="apphead">Big apple T-Shirt</p>
+                            <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 132 Ratings</p> -->
+
+                            <div class="rating reflect">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <p>194
+                                    reviews</p>
+                            </div>
+                        </div>
+                        <div class="appprice">
+                            <p>$30</p>
+                            <p>></p>
+                        </div>
+                    </div>
+
+                    <div onclick="app(this)" class="appdiv" data-title="Cat&Mouse" data-comp="Myspacemark"
                         data-icon="appstore/st.png"
                         data-des=' 2026 Cat&Mouse T-Shirt<br><br>Designed by<br><a href="https://www.instagram.com/data00000000000000/" style="color: blue;" target="_blank">@data00000000000000</a>'
-                        data-button="$30" data-rev="934"
-                        data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png"
-                        data-shop="gid://shopify/ProductVariant/49764737745136">
+                        data-button="SOLD OUT" data-rev="934"
+                        data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png">
 
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
@@ -1713,7 +1764,7 @@
                             </div>
                         </div>
                         <div class="appprice">
-                            <p>$30</p>
+                            <p>SOLD OUT</p>
                             <p>></p>
                         </div>
                     </div>
@@ -1907,14 +1958,14 @@
             <div id="lockscreen">
 
 
-                <a class="popup" href="https://posh.vip/e/cyburjunkies" target="_blank">
+                <!-- <a class="popup" href="https://posh.vip/e/cyburjunkies" target="_blank">
                     <img class="popuplogo" src="appstore/ny.png" alt="">
                     <div class="popuptext">
                         <p class="popuphead">LIVE IN NYC! TICKETS HERE ❤️</p>
                         <p class="popupdes">June 20th 🇺🇸</p>
                     </div>
                     <p class="popuptime">1h ago</p>
-                </a>
+                </a> -->
 
                 <!-- <a class="popup" href="https://open.spotify.com/album/50xMM8NqPqNEELwVaA61Ic" target="_blank">
                     <img class="popuplogo" src="icons/sunroof.jpg" alt="">
@@ -2092,7 +2143,7 @@
     }
 
     // Initialize tsize with the default selected size (Medium)
-    let tsize = 'gid://shopify/ProductVariant/49764737745136';
+    let tsize = 'gid://shopify/ProductVariant/49858327183600';
 
     const sizeContainer = document.getElementById('ssize');
 
@@ -2113,7 +2164,7 @@
                 // 3. Update the tsize variable with the clicked element's variant ID
                 tsize = clickedSize.getAttribute('data-id');
 
-                console.log("Updated tsize to:", tsize); // For testing
+                // console.log("Updated tsize to:", tsize); // For testing
             }
         });
     }
@@ -2285,9 +2336,9 @@
                     text: 'Check out this page!',   // Custom message text
                     url: window.location.href       // Grabs the current page URL
                 });
-                console.log('Page shared successfully!');
+                // console.log('Page shared successfully!');
             } catch (error) {
-                console.log('Sharing failed or user cancelled:', error);
+                // console.log('Sharing failed or user cancelled:', error);
             }
         } else {
             // Fallback logic for older browsers or desktop browsers that don't support it
@@ -2319,7 +2370,7 @@
         div.addEventListener("animationend", () => {
             div.remove();
             dwo.remove();
-            console.log("Download visualization finished!");
+            // console.log("Download visualization finished!");
             p.textContent = document.getElementById('apptitle').textContent;
 
             link.href = "https://www.youtube.com/c/myspacemark";
@@ -2430,6 +2481,8 @@
 
     function app(yup) {
 
+
+
         document.getElementById("appflex").style.display = "none"
 
         document.getElementById("storemidmargin").style.display = "block"
@@ -2529,6 +2582,8 @@
 
     function openupdate() {
 
+        opened = true;
+        updateTime();
 
         document.getElementById("main").style.display = "none"
         document.getElementById("unlock").style.display = "none"
@@ -2676,7 +2731,7 @@
 
 </script> -->
 
-<!-- I THINK VOLUME? -->
+<!-- OPEN SLIDER -->
 <script>
     const slider = document.getElementById("slider");
     const slide = document.getElementById("slide");
@@ -2814,6 +2869,7 @@
     }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <!-- CAMERA PHOTO -->
 <script>
 
@@ -2826,78 +2882,44 @@
 
     // Take screenshot of visible video area
     shotBtn.addEventListener("click", () => {
-
         const audio = new Audio('sounds/camera.MP3');
         audio.play();
-        // Get visible video size
-        const rect = video.getBoundingClientRect();
-        const cw = rect.width;
-        const ch = rect.height;
 
-        const vw = video.videoWidth;
-        const vh = video.videoHeight;
+        // 1. Target the parent container holding the video AND the UI overlays
+        const captureContainer = document.getElementById("cameradiv"); // Change this to your container's ID
 
-        const canvas = document.createElement("canvas");
-        canvas.width = cw;
-        canvas.height = ch;
-        const ctx = canvas.getContext("2d");
+        // 2. Use html2canvas to render the entire container to a canvas
+        // Note: 'willReadFrequently: true' optimizes video frame reading
+        html2canvas(captureContainer, { useCORS: true, willReadFrequently: true }).then(canvas => {
 
-        // Handle object-fit: cover crop
-        const containerRatio = cw / ch;
-        const videoRatio = vw / vh;
+            // Save or share logic remains the same
+            if (window.innerWidth < 600 && navigator.share) {
+                // Mobile: try Web Share API
+                canvas.toBlob((blob) => {
+                    if (!blob) return;
+                    const file = new File([blob], 'IMG_1258.png', { type: 'image/png' });
 
-        let sx, sy, sw, sh;
-
-        if (videoRatio > containerRatio) {
-            sw = vh * containerRatio;
-            sh = vh;
-            sx = (vw - sw) / 2;
-            sy = 0;
-        } else {
-            sw = vw;
-            sh = vw / containerRatio;
-            sx = 0;
-            sy = (vh - sh) / 2;
-        }
-
-        // Handle mirror if applied
-        const style = window.getComputedStyle(video);
-        const transform = style.transform || "none";
-        if (transform.includes("-1")) {
-            ctx.translate(cw, 0);
-            ctx.scale(-1, 1);
-        }
-
-        ctx.drawImage(video, sx, sy, sw, sh, 0, 0, cw, ch);
-
-        // Save or share
-        if (window.innerWidth < 600 && navigator.share) {
-            // Mobile: try Web Share API
-            canvas.toBlob((blob) => {
-                if (!blob) return;
-                const file = new File([blob], 'IMG_1258.png', { type: 'image/png' });
-
-                navigator.share({
-                    files: [file],
-                    title: 'Shot on Iphone',
-                    text: 'love myspacemark'
-                }).catch(err => {
-                    console.log('Share failed, opening preview instead:', err);
+                    navigator.share({
+                        files: [file],
+                        title: 'Shot on Iphone',
+                        text: 'love myspacemark'
+                    }).catch(err => {
+                        const url = URL.createObjectURL(blob);
+                        window.open(url, '_blank'); // fallback
+                    });
+                }, 'image/png');
+            } else {
+                // Desktop fallback: download
+                canvas.toBlob(blob => {
                     const url = URL.createObjectURL(blob);
-                    window.open(url, '_blank'); // fallback
-                });
-            }, 'image/png');
-        } else {
-            // Desktop fallback: download
-            canvas.toBlob(blob => {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `shot-${Date.now()}.png`;
-                a.click();
-                URL.revokeObjectURL(url);
-            }, "image/png");
-        }
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `shot-${Date.now()}.png`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }, "image/png");
+            }
+        });
     });
 
 
@@ -3006,6 +3028,7 @@
         const timeEl = document.getElementById("time");
 
         if (!timeEl) {
+
             return;
         }
         const now = new Date();
@@ -3092,6 +3115,8 @@
     }
 </script>
 
+<!-- SOLDOUT CHECK -->
+<!-- 
 <script>
     function isSoldOut() {
         // 1. Get the current time
@@ -3125,7 +3150,7 @@
         console.log("Status: AVAILABLE. Items can still be purchased.");
         // Code to allow normal checkout
     }
-</script>
+</script> -->
 
 
 
