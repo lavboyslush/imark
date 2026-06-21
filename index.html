@@ -1707,8 +1707,7 @@
                     <div onclick="app(this)" class="appdiv" id="tt" data-title="Big apple" data-comp="Myspacemark"
                         data-icon="appstore/nyc.png"
                         data-des='Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
-                        data-button="$30" data-rev="194"
-                        data-images="appstore/apple/jb.jpg, appstore/apple/jb2.jpg"
+                        data-button="$30" data-rev="194" data-images="appstore/apple/jb.jpg, appstore/apple/jb2.jpg"
                         data-shop="gid://shopify/ProductVariant/49858327183600">
 
                         <div class="applogodiv">
@@ -2224,10 +2223,12 @@
             const result = await response.json();
 
             // Check for top-level graphQL errors or user input errors
-            if (result.errors || (result.data?.cartCreate?.userErrors && result.data.cartCreate.userErrors.length > 0)) {
-                console.error("Shopify Error:", result.errors || result.data.cartCreate.userErrors);
-                alert("Error creating checkout. Ensure your variant ID format is correct (gid://shopify/ProductVariant/...)");
-                if (button) { button.innerText = "Buy Now"; button.disabled = false; }
+            if (result.data?.cartCreate?.userErrors && result.data.cartCreate.userErrors.length > 0) {
+                // Get the actual error message from Shopify
+                const errorMsg = result.data.cartCreate.userErrors[0].message;
+                alert(`Could not checkout: ${errorMsg}`);
+
+                if (button) { button.innerText = "SOLD OUT";}
                 return;
             }
 
