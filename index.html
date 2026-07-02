@@ -3144,6 +3144,7 @@
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 element.textContent = "Love u";
+
                 return;
             }
 
@@ -3174,6 +3175,8 @@
     // --- HOW TO USE IT IN YOUR APPLICATION ---
     if (isSoldOut()) {
         console.log("Status: SOLD OUT. Disabling buy button.");
+
+        closeupdate();
 
         const button = document.getElementById("tt");
         if (button) { // Added a quick safety check just in case the button isn't loaded yet
