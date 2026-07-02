@@ -1496,6 +1496,10 @@
             }
         }
 
+        #closes {
+            color: black;
+        }
+
 
 
 
@@ -1706,7 +1710,7 @@
 
                     <div onclick="app(this)" class="appdiv" id="tt" data-title="Big apple" data-comp="Myspacemark"
                         data-icon="appstore/nyc.png"
-                        data-des='Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
+                        data-des='<span id="closes"></span><br><br>Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
                         data-button="$30" data-rev="194" data-images="appstore/apple/jb.jpg, appstore/apple/jb2.jpg"
                         data-shop="gid://shopify/ProductVariant/49858327216368">
 
@@ -2228,7 +2232,7 @@
                 const errorMsg = result.data.cartCreate.userErrors[0].message;
                 alert(`Could not checkout: ${errorMsg}`);
 
-                if (button) { button.innerText = "SOLD OUT";}
+                if (button) { button.innerText = "SOLD OUT"; }
                 return;
             }
 
@@ -2510,6 +2514,8 @@
         // rev.textContent = data.rev + " reviews";
         appcomp.textContent = data.comp;
 
+
+
         //SHOP BUTTON
         if (!data.shop) {
             document.getElementById("ssize").style.display = "none";
@@ -2561,6 +2567,8 @@
                 shirtRatingDiv.appendChild(clonedChild);
             });
         }
+
+        closesIn();
 
     }
 
@@ -3117,41 +3125,65 @@
 </script>
 
 <!-- SOLDOUT CHECK -->
-<!-- 
+
 <script>
+    // 1. Define the deadline globally with the strict Pacific Time offset (-07:00)
+    const deadlineStr = "2026-07-03T00:00:00-07:00";
+
+    function closesIn() {
+        const element = document.getElementById("closes");
+        if (!element) return;
+
+        const deadline = new Date(deadlineStr);
+
+        // 1. Create a helper function for the timer logic
+        function updateTimer() {
+            const now = new Date();
+            const timeLeft = deadline - now;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                element.textContent = "Love u";
+                return;
+            }
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            element.textContent = `Site closes in ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // 2. Trigger it IMMEDIATELY so there is no 1-second delay
+        updateTimer();
+
+        // 3. Then let the interval take over every second
+        const timer = setInterval(updateTimer, 1000);
+    }
+
+
     function isSoldOut() {
-        // 1. Get the current time
         const now = new Date();
+        const deadline = new Date(deadlineStr);
 
-        // 2. Define the strict deadline: June 10, 2026, at 00:00:00 Pacific Time
-        const deadlineStr = "2026-06-10T00:00:00";
-
-        // 3. Force JavaScript to interpret that deadline specifically in Pacific Time
-        const deadlineInPacific = new Date(new Date(deadlineStr).toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-        const nowInPacific = new Date(now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" }));
-
-        // 4. Return true if the current time has passed the deadline
-        return nowInPacific >= deadlineInPacific;
+        // Simply compare the absolute timestamps (UTC vs UTC). 
+        // It works seamlessly globally without messy local string conversions.
+        return now >= deadline;
     }
 
     // --- HOW TO USE IT IN YOUR APPLICATION ---
-
     if (isSoldOut()) {
         console.log("Status: SOLD OUT. Disabling buy button.");
 
         const button = document.getElementById("tt");
-
-        button.setAttribute("data-button", "SOLD OUT");
-        button.removeAttribute("data-shop");
-
-
-
-
+        if (button) { // Added a quick safety check just in case the button isn't loaded yet
+            button.setAttribute("data-button", "SOLD OUT");
+            button.removeAttribute("data-shop");
+        }
     } else {
         console.log("Status: AVAILABLE. Items can still be purchased.");
-        // Code to allow normal checkout
     }
-</script> -->
+</script>
 
 
 
