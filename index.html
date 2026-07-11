@@ -31,6 +31,8 @@
 
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             color: white;
+
+            touch-action: manipulation;
         }
 
         html,
@@ -68,6 +70,13 @@
             -ms-user-select: none;
             /* Internet Explorer/Edge legacy */
             -o-user-select: none;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
         }
 
         #lockscreen {
@@ -985,7 +994,9 @@
             justify-content: center;
             align-items: start;
             overflow: scroll;
+
         }
+
 
 
 
@@ -1003,6 +1014,10 @@
         .shirtdiv {
             display: flex;
             justify-content: space-around;
+
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
 
         }
 
@@ -1089,29 +1104,38 @@
         }
 
         #buy {
-            width: auto;
+            flex: 1;
             text-align: center;
             padding: 2vw;
-            padding-left: 2vw;
-            padding-right: 2vw;
+
             font-size: 5vw;
-            margin: 0vw;
-            right: 0vw;
-            margin-top: 2vw;
+
             /* bottom: -12vw; */
-
             border-radius: 2vw;
-
             font-weight: 500;
-
-            position: absolute;
-
             border: 2px #1a9420 solid;
-
             background: linear-gradient(to bottom,
                     #a8f57c 0%,
 
                     #75B45B 100%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cart {
+            padding: 2vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 2px #1a9420 solid;
+            background: linear-gradient(to bottom,
+                    #a8f57c 0%,
+
+                    #75B45B 100%);
+            border-radius: 2vw;
         }
 
 
@@ -1179,6 +1203,10 @@
 
         .appdes {
             width: 72vw;
+
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .appprice p {
@@ -1412,6 +1440,8 @@
 
         }
 
+
+
         .ssize {
             display: flex;
 
@@ -1421,10 +1451,11 @@
 
             justify-content: space-between;
 
+
         }
 
         .ssize div {
-            width: 10vw;
+            flex: 1;
             height: 8vw;
             display: flex;
             justify-content: center;
@@ -1432,7 +1463,7 @@
             cursor: pointer;
             text-align: center;
             gap: 1vw;
-            margin-bottom: 2vw;
+
 
 
             background: linear-gradient(to bottom,
@@ -1449,11 +1480,14 @@
 
         }
 
-        #sq {
+        .sq {
             justify-content: space-between;
             display: flex;
             /* margin-left: 1vw; */
             width: 100%;
+
+            margin-top: 2vw;
+            gap: 2vw;
         }
 
         #sq div {
@@ -1500,7 +1534,221 @@
             color: black;
         }
 
+        #cartdiv {
+            height: 100%;
+            width: 100vw;
 
+            background-color: rgba(0, 0, 0, 0.576);
+            position: absolute;
+            display: flex;
+
+            align-items: center;
+            justify-content: end;
+            flex-direction: column;
+
+            user-select: none;
+            -webkit-user-select: none;
+            /* Chrome, Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge legacy */
+            -o-user-select: none;
+        }
+
+        #cartdiv p {
+
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #cartwhite {
+
+            width: 100%;
+            height: 110vw;
+            border-radius: 2vw;
+            background-color: #f3f2f8;
+
+            animation: slideUp 0.2s ease-in forwards;
+
+            flex-direction: column;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+
+                opacity: 0;
+
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        #cartitemsdiv {
+
+            height: 60%;
+            width: 90%;
+
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #cartbottom {
+            background: #ffffff;
+            height: 40%;
+            width: 100%;
+        }
+
+        #cartdue {
+
+            height: 50%;
+
+            z-index: 2;
+
+            border-bottom: #c4c4c4 solid 0.5px;
+
+        }
+
+        #due {
+            font-size: 3.5vw;
+            color: gray;
+        }
+
+        #price {
+            color: black;
+            font-size: 8vw;
+        }
+
+        #cartname {
+            width: 100vw;
+            justify-content: start;
+
+        }
+
+        #cartname p {
+            color: black;
+            font-size: 8vw;
+        }
+
+        #cartpay {
+            height: 50%;
+        }
+
+        #cartcheckout {
+
+            color: black;
+            font-size: 8vw;
+        }
+
+        #carttop {
+            height: 30%;
+            justify-content: space-between;
+        }
+
+        #cartex {
+            width: 11vw;
+            height: 9vw;
+            background-color: #e3e2e8;
+            border-radius: 50%;
+
+            color: #78777d;
+
+            font-size: 5vw;
+            line-height: 0;
+
+        }
+
+        #cartitems {
+            height: 70%;
+
+        }
+
+        .item {
+            width: 100%;
+            /* background-color: rgb(255, 187, 187); */
+            height: 18vw;
+
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 2vw;
+
+
+        }
+
+        .itemflex {
+            border-radius: 2vw;
+
+            background-color: white;
+            width: 90%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .itemimg {
+            width: 15vw;
+            margin-right: 4vw;
+        }
+
+        .itemname {
+            font-size: 5vw;
+            color: black;
+        }
+
+        .itemsize {
+            color: gray;
+        }
+
+        .itemqdiv {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+
+            width: 8%;
+
+            background: white;
+
+            border-radius: 2vw;
+        }
+
+        .itemqdiv p {
+            color: gray;
+            font-size: 5vw;
+        }
+
+        .itemprice {
+            font-size: 5vw;
+            color: black;
+            margin-right: 2vw;
+        }
+
+        .itemarrow {
+
+            padding: 3vw;
+            line-height: 0;
+            border-radius: 2vw;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
 
         @media (min-width: 600px) {
@@ -1534,8 +1782,8 @@
 <body>
 
     <div id="updatediv">
-        <p class="updatehead">Swag Update</p>
-        <p class="updatedes">New tshirts available in the SwagStore.</p>
+        <p class="updatehead">Swag Restock!</p>
+        <p class="updatedes">Dont miss out again</p>
 
         <div class="updatechoicediv">
             <p onclick="closeupdate()">Close</p>
@@ -1599,13 +1847,15 @@
                 </div> -->
                 <div id="infotopdiv">
                     <p onclick="backapp()" class="storetopback">Back</p>
-                    <p style="font-size: 5vw;">Info</p>
-                    <p id="tell" class="storetoptell" onclick="tell()">Tell a Friend</p>
+                    <p class="info" style="font-size: 5vw;">Info</p>
+                    <!-- <p id="tell" class="storetoptell" onclick="tell()">Tell a Friend</p> -->
+                    <p id="tell" class="storetoptell" onclick="openCart()">Cart</p>
                 </div>
 
                 <div id="menutopdiv">
                     <p onclick="turnoffapp()" class="storetopback">Back</p>
-                    <p style="font-size: 5vw;" id="menutopdivname">Featured</p>
+                    <p class="info" style="font-size: 5vw;" id="menutopdivname">Featured</p>
+                    <p id="tell" class="storetoptell" onclick="openCart()">Cart</p>
                 </div>
 
 
@@ -1635,22 +1885,28 @@
                             </div>
 
 
-                            <div class="ssize" id="ssize">
-                                <div data-id="gid://shopify/ProductVariant/49858327150832" class="">S</div>
-                                <!-- <div data-id="gid://shopify/ProductVariant/49858327183600" class="selected">M</div> -->
-                                <div data-id="gid://shopify/ProductVariant/49858327216368" class="selected">L</div>
-                                <div data-id="gid://shopify/ProductVariant/49858327249136">XL</div>
+                            <div class="ssize sq" id="ssize">
+                                <div id="size-s" data-id="gid://shopify/ProductVariant/49858327150832">S</div>
+                                <div id="size-m" data-id="gid://shopify/ProductVariant/49858327183600">
+                                    M</div>
+                                <div id="size-l" data-id="gid://shopify/ProductVariant/49858327216368">L</div>
+                                <div id="size-xl" data-id="gid://shopify/ProductVariant/49858327249136">XL</div>
                             </div>
 
                             <div>
-                                <div id="sq">
+                                <div class="sq" id="sq">
                                     <div id="minus-btn">-</div>
                                     <div id="qty-display">1</div>
                                     <div id="plus-btn">+</div>
                                 </div>
 
+                                <div class="sq">
+                                    <p id="cart" onclick="addToCart()">To Cart</p>
+                                    <p id="buy" onclick="createDirectCheckout()">$30</p>
 
-                                <a id="buy" onclick="createDirectCheckout()">$30</a>
+                                </div>
+
+
                             </div>
 
 
@@ -1698,11 +1954,12 @@
                 <div id="appflex">
 
                     <div class="adddiv" id="adddiv">
-                        <a class="add" onclick="app(targetDiv);">
+                        <a class="add" onclick="" href="https://open.spotify.com/artist/7qtzuOx6vmqfGAdOaiDzeC"
+                            target="_blank">
                             <img src="appstore/soon.jpg" class="add" alt="">
                         </a>
                         <div class="add" onclick="app(targetDiv);">
-                            <img src="appstore/apple/jb.jpg" class="add" alt="">
+                            <img src="cat/g6.png" class="add" alt="">
                         </div>
 
 
@@ -1710,9 +1967,12 @@
 
                     <div onclick="app(this)" class="appdiv" id="tt" data-title="Big apple" data-comp="Myspacemark"
                         data-icon="appstore/nyc.png"
-                        data-des='<span id="closes"></span><br><br>Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
+                        data-des='Exclusive New York City 6/20 show t-shirt<br><br>Designed by<br><a href="https://www.instagram.com/9oodkid_" style="color: blue;" target="_blank">@9oodkid_</a>'
                         data-button="$30" data-rev="194" data-images="appstore/apple/jb.jpg, appstore/apple/jb2.jpg"
-                        data-shop="gid://shopify/ProductVariant/49858327216368">
+                        data-shop="yes" data-shop-s="gid://shopify/ProductVariant/49858327150832"
+                        data-shop-m="gid://shopify/ProductVariant/49858327183600"
+                        data-shop-l="gid://shopify/ProductVariant/49858327216368"
+                        data-shop-xl="gid://shopify/ProductVariant/49858327249136">
 
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
@@ -1743,8 +2003,13 @@
                     <div onclick="app(this)" class="appdiv" data-title="Cat&Mouse" data-comp="Myspacemark"
                         data-icon="appstore/st.png"
                         data-des=' 2026 Cat&Mouse T-Shirt<br><br>Designed by<br><a href="https://www.instagram.com/data00000000000000/" style="color: blue;" target="_blank">@data00000000000000</a>'
-                        data-button="SOLD OUT" data-rev="934"
-                        data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png">
+                        data-button="$30" data-rev="934"
+                        data-images="cat/g6.png, cat/b1.png, cat/b4.png, cat/g4.png, cat/b2.png" data-shop="yes"
+                        data-shop-s="gid://shopify/ProductVariant/49764737745136"
+                        data-shop-m="gid://shopify/ProductVariant/49764737777904"
+                        data-shop-l="gid://shopify/ProductVariant/49764737810672" data-shop-xl="">
+
+
 
                         <div class="applogodiv">
                             <img class="overapplogo" src="icons/over.png" alt="">
@@ -1767,10 +2032,50 @@
                             </div>
                         </div>
                         <div class="appprice">
-                            <p>SOLD OUT</p>
+                            <p>$30</p>
                             <p>></p>
                         </div>
                     </div>
+
+                    <div onclick="app(this)" class="appdiv" data-title="Grey db" data-comp="4dbluestrips"
+                        data-icon="appstore/dbg/4.png"
+                        data-des='From the first 4dbluestrips collection<br><br>Designed by <a href="https://www.instagram.com/0131zomi/" style="color: blue;" target="_blank">@0131zomi</a>'
+                        data-button="$30" data-rev="121"
+                        data-images="appstore/dbg/1.png, appstore/dbg/2.png, appstore/dbg/3.png" data-shop="yes"
+                        data-shop-s="gid://shopify/ProductVariant/48408441585904" data-shop-m="" data-shop-l=""
+                        data-shop-xl="">
+
+
+
+                        <div class="applogodiv">
+                            <img class="overapplogo" src="icons/over.png" alt="">
+                            <img class="applogo" src="appstore/dbg/4.png" alt="">
+                        </div>
+
+                        <div class="appdes">
+                            <p class="appcorp">4dbluestrips</p>
+                            <p class="apphead">Grey db T-Shirt</p>
+                            <!-- <p class="appstar">⭐️⭐️⭐️⭐️⭐️ 132 Ratings</p> -->
+
+                            <div class="rating reflect">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s1.png" alt="">
+                                <img src="appstore/s2.png" alt="">
+                                <p>121
+                                    reviews</p>
+                            </div>
+                        </div>
+                        <div class="appprice">
+                            <p>$30</p>
+                            <p>></p>
+                        </div>
+                    </div>
+
+
+
+
 
                     <div onclick="app(this)" class="appdiv" data-title="Designer Bird" data-comp="Flappy Bird"
                         data-icon="icons/designer.png" data-des='birdddgameee swag af' data-button="SOON" data-rev="0"
@@ -1888,6 +2193,126 @@
 
             </div>
 
+            <div id="cartdiv" onclick="closeCart(event)">
+
+                <div id="cartwhite" class="flex">
+
+                    <div id="cartitemsdiv">
+                        <div class="flex" id="carttop">
+                            <div class="flex" id="cartname">
+                                <p>🍎</p>
+                                <p>Cart</p>
+                            </div>
+                            <div id="cartex" class="flex" onclick="closeCart(event)">x</div>
+                        </div>
+
+                        <div id="cartitems">
+
+                            <div class="item">
+                                <div class="itemflex">
+                                    <div class="flex">
+                                        <img class="itemimg" src="appstore/nyc.png" alt="">
+                                        <div>
+                                            <p class="itemname">Big Apple T-Shirt</p>
+                                            <p class="itemsize">size M</p>
+                                        </div>
+                                    </div>
+
+                                    <p class="itemprice">$30</p>
+
+                                </div>
+                                <div class="itemqdiv">
+                                    <p class="itemarrow">˄</p>
+                                    <p class="itemq">1</p>
+                                    <p class="itemarrow">˅</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="itemflex">
+                                    <div class="flex">
+                                        <img class="itemimg" src="appstore/nyc.png" alt="">
+                                        <div>
+                                            <p class="itemname">Big Apple T-Shirt</p>
+                                            <p class="itemsize">size M</p>
+                                        </div>
+                                    </div>
+
+                                    <p class="itemprice">$30</p>
+
+                                </div>
+                                <div class="itemqdiv">
+                                    <p class="itemarrow">˄</p>
+                                    <p class="itemq">1</p>
+                                    <p class="itemarrow">˅</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="itemflex">
+                                    <div class="flex">
+                                        <img class="itemimg" src="appstore/nyc.png" alt="">
+                                        <div>
+                                            <p class="itemname">Big Apple T-Shirt</p>
+                                            <p class="itemsize">size M</p>
+                                        </div>
+                                    </div>
+
+                                    <p class="itemprice">$30</p>
+
+                                </div>
+                                <div class="itemqdiv">
+                                    <p class="itemarrow">˄</p>
+                                    <p class="itemq">1</p>
+                                    <p class="itemarrow">˅</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="itemflex">
+                                    <div class="flex">
+                                        <img class="itemimg" src="appstore/nyc.png" alt="">
+                                        <div>
+                                            <p class="itemname">Big Apple T-Shirt</p>
+                                            <p class="itemsize">size M</p>
+                                        </div>
+                                    </div>
+
+                                    <p class="itemprice">$30</p>
+
+                                </div>
+                                <div class="itemqdiv">
+                                    <p class="itemarrow">˄</p>
+                                    <p class="itemq">1</p>
+                                    <p class="itemarrow">˅</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="cartbottom">
+
+                        <div id="cartdue" class="flex">
+                            <div style="width: 90%;">
+                                <p id="due">Due today</p>
+                                <p id="price">$30.00</p>
+                            </div>
+                        </div>
+
+                        <div id="cartpay" class="flex">
+                            <p id="cartcheckout" onclick="checkoutCart();">Checkout</p>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
             <div id="storebottom">
                 <div class="selected">
                     <img src="appicons/featuredb.png" alt="">
@@ -1982,6 +2407,7 @@
 
 
             </div>
+
             <div id="unlockbottom">
                 <div id="slide">
                     <div id="slider"> <img src="icons/arrow.png" draggable="false" alt=""></div>
@@ -2094,11 +2520,115 @@
 
 </body>
 
-<!-- checkout -->
+<script>
+    const STORE_DOMAIN = "g95kvh-vx.myshopify.com";
+    const API_TOKEN = "f4a2297fe7c326ad7868832b8f432f29";
+</script>
+<!-- INVENTORY CHECK -->
+<script>
+    async function syncAllInventory() {
+        // 1. Find all product containers on the page
+        const appDivs = document.querySelectorAll(".appdiv");
+        const allVariantIds = [];
+
+        // 2. Loop through elements to harvest all the variant IDs
+        appDivs.forEach(div => {
+            ['s', 'm', 'l', 'xl'].forEach(size => {
+                const id = div.getAttribute(`data-shop-${size}`);
+                if (id && id.trim() !== "") {
+                    allVariantIds.push(id);
+                }
+            });
+        });
+
+        // If there are no IDs on the page, stop here
+        if (allVariantIds.length === 0) return;
+
+        // 3. Query Shopify for everything in ONE batch request
+        const query = `
+        query checkVariants($ids: [ID!]!) {
+            nodes(ids: $ids) {
+                ... on ProductVariant {
+                    id
+                    availableForSale
+                }
+            }
+        }
+        `;
+
+        try {
+            const response = await fetch(`https://${STORE_DOMAIN}/api/2024-01/graphql.json`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Shopify-Storefront-Access-Token': API_TOKEN,
+                },
+                body: JSON.stringify({ query, variables: { ids: allVariantIds } }),
+            });
+
+            const result = await response.json();
+
+            // 4. Map out which IDs are actually available
+            const availabilityMap = {};
+            if (result.data && result.data.nodes) {
+                result.data.nodes.forEach(node => {
+                    if (node) {
+                        availabilityMap[node.id] = node.availableForSale;
+                    }
+                });
+            }
+
+            // 5. Loop back through the HTML elements, wipe out sold-out IDs, and check overall stock
+            appDivs.forEach(div => {
+
+                if (div.hasAttribute("data-shop")) {
+                    let activeSizesCount = 0;
+
+                    ['s', 'm', 'l', 'xl'].forEach(size => {
+                        let id = div.getAttribute(`data-shop-${size}`);
+
+                        // If the ID exists but Shopify says availableForSale is false, wipe it
+                        if (id && availabilityMap[id] === false) {
+                            div.setAttribute(`data-shop-${size}`, "");
+                            id = ""; // Update local variable for the counter check below
+                            console.log(`Wiped out sold-out variant: ${id} (${size.toUpperCase()})`);
+                        }
+
+                        // Count how many sizes actually remain valid/in-stock for this item
+                        if (id && id.trim() !== "") {
+                            activeSizesCount++;
+                        }
+                    });
+
+                    // FIX: If NO sizes are left available for this product, strip data-shop="yes"
+                    if (activeSizesCount === 0) {
+                        div.removeAttribute("data-shop");
+                        div.setAttribute("data-button", "SOLD OUT");
+                        console.log("Product completely sold out. Removed data-shop attribute.");
+                    }
+                }
+            });
+
+        } catch (error) {
+            console.error("Error syncing inventory counts from Shopify:", error);
+        }
+    }
+
+    syncAllInventory();
+</script>
+
+<!-- DIRECT checkout -->
 <script>
 
     // Initialize tq as a safe mathematical integer
     let tq = 1;
+    let tsize;
+
+    let tName;
+    let tSizeName;
+    let tPrice;
+    let tImg;
+
 
     const minusBtn = document.getElementById('minus-btn');
     const plusBtn = document.getElementById('plus-btn');
@@ -2145,8 +2675,6 @@
         });
     }
 
-    // Initialize tsize with the default selected size (L)
-    let tsize = 'gid://shopify/ProductVariant/49858327216368';
 
     const sizeContainer = document.getElementById('ssize');
 
@@ -2166,19 +2694,19 @@
 
                 // 3. Update the tsize variable with the clicked element's variant ID
                 tsize = clickedSize.getAttribute('data-id');
+                tSizeName = clickedSize.innerText;
 
                 // console.log("Updated tsize to:", tsize); // For testing
             }
         });
     }
 
-    const STORE_DOMAIN = "g95kvh-vx.myshopify.com";
-    const API_TOKEN = "f4a2297fe7c326ad7868832b8f432f29";
+
 
     async function createDirectCheckout() {
-        const button = document.getElementById('buy-btn');
+
         if (button) {
-            button.innerText = "Creating Checkout...";
+            // button.innerText = "Checkout...";
             button.disabled = true;
         }
 
@@ -2232,7 +2760,11 @@
                 const errorMsg = result.data.cartCreate.userErrors[0].message;
                 alert(`Could not checkout: ${errorMsg}`);
 
-                if (button) { button.innerText = "SOLD OUT"; }
+                if (button) {
+                    button.innerText = "SOLD OUT";
+
+
+                }
                 return;
             }
 
@@ -2245,6 +2777,241 @@
             console.error("Network error:", error);
             alert("Something went wrong with the checkout request.");
             if (button) { button.innerText = "Buy Now"; button.disabled = false; }
+        }
+    }
+</script>
+
+<!-- cart CHECKOUT -->
+<script>
+
+
+    const cartDiv = document.getElementById("cartitemsdiv");
+
+
+
+    function openCart() {
+
+        updateCartTotal();
+        renderCart();
+
+        cartdiv.style.display = "flex";
+        document.getElementById("appstore").style.display = "flex";
+
+        if (cartDiv) {
+            cartDiv.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+    }
+
+    function closeCart(event) {
+
+        if (event.target === event.currentTarget) {
+            cartdiv.style.display = "none";
+        }
+    }
+
+    let globalCart = [];
+
+
+    function addToCart() {
+        const qty = Number(tq) || 1;
+
+        // Check if the variant is already in the cart
+        const existingItem = globalCart.find(item => item.merchandiseId === tsize);
+
+        if (existingItem) {
+            existingItem.quantity += qty;
+        } else {
+            globalCart.push({
+                merchandiseId: tsize,
+                quantity: qty,
+                name: tName,
+                size: tSizeName,
+                price: tPrice,
+                img: tImg,
+
+            });
+        }
+
+        console.log("Item added. Current Cart:", globalCart);
+
+        openCart();
+    }
+
+    async function checkoutCart() {
+        // Edge case: Don't hit the API if the cart is empty
+        if (globalCart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        if (button) {
+            button.disabled = true;
+        }
+
+        // The mutation remains the same, but the variables will receive multiple lines
+        const query = `
+    mutation cartCreate($input: CartInput!) {
+        cartCreate(input: $input) {
+            cart {
+                checkoutUrl
+            }
+            userErrors {
+                field
+                message
+            }
+        }
+    }
+    `;
+
+        const variables = {
+            input: {
+                // .map() creates a clean, temporary array with ONLY the fields Shopify expects
+                lines: globalCart.map(item => ({
+                    merchandiseId: item.merchandiseId,
+                    quantity: Number(item.quantity) || 1
+                }))
+            }
+        };
+
+        try {
+            const response = await fetch(`https://${STORE_DOMAIN}/api/2024-01/graphql.json`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Shopify-Storefront-Access-Token': API_TOKEN,
+                },
+                body: JSON.stringify({ query, variables }),
+            });
+
+            const result = await response.json();
+
+            if (result.data?.cartCreate?.userErrors && result.data.cartCreate.userErrors.length > 0) {
+                const errorMsg = result.data.cartCreate.userErrors[0].message;
+                alert(`Could not checkout: ${errorMsg}`);
+                if (button) {
+                    button.innerText = "Error";
+                    button.disabled = false;
+                }
+                return;
+            }
+
+            const checkoutUrl = result.data.cartCreate.cart.checkoutUrl;
+
+
+
+            window.top.location.href = checkoutUrl;
+
+        } catch (error) {
+            console.error("Network error:", error);
+            alert("Something went wrong with the checkout request.");
+            if (button) {
+                button.innerText = "Checkout";
+                button.disabled = false;
+            }
+        }
+    }
+
+
+</script>
+
+<!-- populate CART -->
+<script>
+    const cartContainer = document.getElementById("cartitems");
+    function renderCart() {
+
+        // Safety check to ensure the container exists
+        if (!cartContainer) {
+            console.error("Could not find #cartitems element");
+            return;
+        }
+
+        // Clear out the container so we don't duplicate items on re-render
+        cartContainer.innerHTML = "";
+
+        // Loop through each item in your global array
+        globalCart.forEach((item, index) => {
+            // Create the main wrapper div
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+
+            // Populate the inner HTML template using your array's object keys
+            itemDiv.innerHTML = `
+            <div class="itemflex">
+                <div class="flex">
+                    <img class="itemimg" src="${item.img}" alt="${item.name}">
+                    <div>
+                        <p class="itemname">${item.name}</p>
+                        <p class="itemsize">size ${item.size.toUpperCase()}</p>
+                    </div>
+                </div>
+                <p class="itemprice">${item.price}</p>
+            </div>
+            <div class="itemqdiv">
+                <p class="itemarrow increment-btn" data-index="${index}" onclick="incrementCart(this)">˄</p>
+                <p class="itemq">${item.quantity}</p>
+                <p class="itemarrow decrement-btn" data-index="${index}" onclick="decrementCart(this)">˅</p>
+            </div>
+        `;
+
+            // Append this item to your main cart container
+            cartContainer.appendChild(itemDiv);
+        });
+    }
+
+    const priceElement = document.getElementById("price");
+    function updateCartTotal() {
+
+
+        if (!priceElement) {
+            console.error("Could not find #price element");
+            return;
+        }
+
+        // Use reduce to loop through the cart and add up the totals
+        const total = globalCart.reduce((sum, item) => {
+            // Strip the "$" sign and convert to a decimal number (e.g., "$30" or "$30.00" -> 30)
+            const numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, "")) || 0;
+
+            // Add (price * quantity) to our running sum
+            return sum + (numericPrice * item.quantity);
+        }, 0);
+
+        // Format the number back to a currency string ($30.00)
+        priceElement.textContent = `$${total.toFixed(2)}`;
+    }
+
+    function incrementCart(element) {
+        // 1. Get the index of the clicked item from the HTML data-index attribute
+        const index = element.getAttribute("data-index");
+
+        // 2. Safety check: make sure the item actually exists in our cart array
+        if (globalCart[index]) {
+            globalCart[index].quantity += 1;
+
+            // 3. Update the visual cart list and recalculate the total price
+            renderCart();
+            updateCartTotal();
+        }
+    }
+
+    function decrementCart(element) {
+        const index = element.getAttribute("data-index");
+
+        if (globalCart[index]) {
+            globalCart[index].quantity -= 1;
+
+            // OPTIONAL: If the quantity hits 0, completely remove it from the cart
+            if (globalCart[index].quantity <= 0) {
+                globalCart.splice(index, 1);
+            }
+
+            // Update the visual cart list and recalculate the total price
+            renderCart();
+            updateCartTotal();
         }
     }
 </script>
@@ -2482,30 +3249,44 @@
     });
 
 
+    let title = document.getElementById("apptitle");
+    let icon = document.getElementById("appicon");
+    let des = document.getElementById("appdes");
+    let button = document.getElementById("buy");
+    let cartbutton = document.getElementById("cart");
+    let rev = document.getElementById("apprev");
 
 
+    const storemid = document.getElementById("storemid");
+
+    const cartdiv = document.getElementById("cartdiv");
+
+    // APPPPPPPPPPP!!!!!!!!!!!!!!!
     function app(yup) {
+
+        const backButtons = document.querySelectorAll('.storetopback');
+        backButtons.forEach(button => {
+            button.removeAttribute('onclick');
+            button.onclick = backapp;
+
+        });
 
 
 
         document.getElementById("appflex").style.display = "none"
-
         document.getElementById("storemidmargin").style.display = "block"
-
-
         document.getElementById("infotopdiv").style.display = "flex"
         document.getElementById("menutopdiv").style.display = "none"
 
-        document.getElementById("storemid").scrollTop = 0;
+        storemid.scrollTop = 0;
 
-        let title = document.getElementById("apptitle");
-        let icon = document.getElementById("appicon");
-        let des = document.getElementById("appdes");
-        let button = document.getElementById("buy");
-        let rev = document.getElementById("apprev");
+        cartdiv.style.display = "none";
+
 
 
         const data = yup.dataset;
+
+
 
         title.textContent = data.title;
         icon.src = data.icon;
@@ -2523,6 +3304,8 @@
 
             button.onclick = null;
 
+            cartbutton.style.display = "none";
+
             if (data.install == "INSTALL") {
 
                 button.onclick = function () {
@@ -2539,6 +3322,55 @@
             document.getElementById("sq").style.display = "flex";
 
             button.onclick = createDirectCheckout;
+            cartbutton.style.display = "flex";
+
+            const sizes = ['s', 'm', 'l', 'xl'];
+
+            const availableSizes = sizes.filter(size => data[`shop-${size}`]);
+            let chosenFallback = null;
+            // 2. Check if ALL sizes are present
+            if (availableSizes.length === sizes.length) {
+                chosenFallback = 'm'; // Default to M if everything is in stock
+            } else {
+                // Priority order fallback chain: M -> L -> S -> XL
+                if (availableSizes.includes('m')) {
+                    chosenFallback = 'm';
+                } else if (availableSizes.includes('l')) {
+                    chosenFallback = 'l';
+                } else if (availableSizes.includes('s')) {
+                    chosenFallback = 's';
+                } else if (availableSizes.includes('xl')) {
+                    chosenFallback = 'xl';
+                }
+            }
+
+            sizes.forEach(size => {
+                const element = document.getElementById(`size-${size}`);
+                const dataValue = data[`shop-${size}`];
+                if (element) { // Safety check to make sure the HTML element exists
+                    if (dataValue) {
+                        element.setAttribute("data-id", dataValue);
+                        element.style.display = "flex"; // Reset to block if data exists
+                    } else {
+                        element.style.display = "none";
+                    }
+
+                    element.classList.remove("selected");
+
+                    if (size === chosenFallback && dataValue) {
+                        element.classList.add("selected");
+
+                        // Populate your global cart variables instantly
+                        tsize = dataValue;
+                        tName = data.title;
+                        tSizeName = size;
+                        tPrice = data.button;
+                        tImg = data.icon;
+
+                        console.log(`Fallback system auto-selected: ${size.toUpperCase()} (ID: ${tsize})`);
+                    }
+                }
+            });
 
 
         }
@@ -2568,7 +3400,6 @@
             });
         }
 
-        closesIn();
 
     }
 
@@ -2581,6 +3412,15 @@
 
         document.getElementById("infotopdiv").style.display = "none"
         document.getElementById("menutopdiv").style.display = "flex"
+
+        storemid.style.display = "flex"
+
+        const backButtons = document.querySelectorAll('.storetopback');
+        backButtons.forEach(button => {
+            button.removeAttribute('onclick');
+            button.onclick = turnoffapp;
+
+        });
     }
 
     function turnoffapp() {
@@ -2588,8 +3428,11 @@
         document.getElementById("appstore").style.display = "none"
     }
 
+    let targetDiv;
 
     function openupdate() {
+
+
 
         opened = true;
         updateTime();
@@ -2598,8 +3441,8 @@
         document.getElementById("unlock").style.display = "none"
         document.getElementById("appstore").style.display = "flex"
 
+        targetDiv = document.getElementById("tt");
 
-        const targetDiv = document.getElementById("tt");
         app(targetDiv);
         closeupdate();
 
@@ -2879,6 +3722,7 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <!-- CAMERA PHOTO -->
 <script>
 
@@ -3029,7 +3873,6 @@
 </script>
 
 
-
 <!-- TIME -->
 <script>
     const locktime = document.getElementById("locktime");
@@ -3126,7 +3969,7 @@
 
 <!-- SOLDOUT CHECK -->
 
-<script>
+<!-- <script>
     // 1. Define the deadline globally with the strict Pacific Time offset (-07:00)
     const deadlineStr = "2026-07-03T00:00:00-07:00";
 
@@ -3186,7 +4029,7 @@
     } else {
         console.log("Status: AVAILABLE. Items can still be purchased.");
     }
-</script>
+</script> -->
 
 
 
