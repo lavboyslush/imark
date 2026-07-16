@@ -2591,7 +2591,7 @@
                         if (id && availabilityMap[id] === false) {
                             div.setAttribute(`data-shop-${size}`, "");
                             id = ""; // Update local variable for the counter check below
-                            console.log(`Wiped out sold-out variant: ${id} (${size.toUpperCase()})`);
+                            // console.log(`Wiped out sold-out variant: ${id} (${size.toUpperCase()})`);
                         }
 
                         // Count how many sizes actually remain valid/in-stock for this item
@@ -2604,7 +2604,7 @@
                     if (activeSizesCount === 0) {
                         div.removeAttribute("data-shop");
                         div.setAttribute("data-button", "SOLD OUT");
-                        console.log("Product completely sold out. Removed data-shop attribute.");
+                        // console.log("Product completely sold out. Removed data-shop attribute.");
                     }
                 }
             });
@@ -2673,6 +2673,12 @@
                 flashButton(minusBtn);
             }
         });
+    }
+
+    function refreshButton() {
+        tq = 1;
+        qtyDisplay.innerText = tq;
+        updateButtonText();
     }
 
 
@@ -2819,6 +2825,8 @@
     function addToCart() {
         const qty = Number(tq) || 1;
 
+        refreshButton();
+
         // Check if the variant is already in the cart
         const existingItem = globalCart.find(item => item.merchandiseId === tsize);
 
@@ -2836,7 +2844,7 @@
             });
         }
 
-        console.log("Item added. Current Cart:", globalCart);
+        // console.log("Item added. Current Cart:", globalCart);
 
         openCart();
     }
@@ -3367,7 +3375,7 @@
                         tPrice = data.button;
                         tImg = data.icon;
 
-                        console.log(`Fallback system auto-selected: ${size.toUpperCase()} (ID: ${tsize})`);
+                        // console.log(`Fallback system auto-selected: ${size.toUpperCase()} (ID: ${tsize})`);
                     }
                 }
             });
@@ -3404,6 +3412,8 @@
     }
 
     function backapp() {
+
+        refreshButton();
 
         document.getElementById("main").style.display = "none"
         document.getElementById("appstore").style.display = "flex"
