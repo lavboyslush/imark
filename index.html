@@ -1535,12 +1535,14 @@
         }
 
         #cartdiv {
+
             height: 100%;
             width: 100vw;
 
             background-color: rgba(0, 0, 0, 0.576);
             position: absolute;
             display: flex;
+            display: none;
 
             align-items: center;
             justify-content: end;
@@ -1954,8 +1956,7 @@
                 <div id="appflex">
 
                     <div class="adddiv" id="adddiv">
-                        <a class="add" onclick="" href="https://foundation-media.ffm.to/moschino"
-                            target="_blank">
+                        <a class="add" onclick="" href="https://foundation-media.ffm.to/moschino" target="_blank">
                             <img src="appstore/soon2.png" class="add" alt="">
                         </a>
                         <div class="add" onclick="app(targetDiv);">
@@ -3444,6 +3445,20 @@
 
 
 
+        // opened = true;
+        // updateTime();
+
+        // document.getElementById("main").style.display = "none"
+        // document.getElementById("unlock").style.display = "none"
+        // document.getElementById("appstore").style.display = "flex"
+
+        // targetDiv = document.getElementById("tt");
+
+        // app(targetDiv);
+        // closeupdate();
+
+        // moveToTargetImage(1);
+
         opened = true;
         updateTime();
 
@@ -3453,10 +3468,10 @@
 
         targetDiv = document.getElementById("tt");
 
-        app(targetDiv);
         closeupdate();
+        backapp()
 
-        moveToTargetImage(1);
+
     }
 
     function closeupdate() {
